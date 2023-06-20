@@ -1,0 +1,10 @@
+version: '3'
+services:
+  tema_app:
+    env_file: .env
+    build: .
+    container_name: macd
+    ports:
+      - "3000:3000"
+    volumes:
+        - .:/macd

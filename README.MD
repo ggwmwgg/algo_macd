@@ -61,6 +61,20 @@ Task was to create macd-psar strategy that works by rules defined in rules secti
 - Run ```python macd_psar.py``` in ```/``` directory.
 - For backtesting run ```python backtest_macd.py``` in ```/backtest``` directory.
 
+#### Docker
+- Using docker:
+  - Build image: ```docker build -t macd:macd .```
+  - Once image is built, run container: ```docker run -it --rm --name macd macd:macd``` where ```-it``` is for interactive mode, ```--rm``` is for removing container after it is stopped, ```--name``` is for naming container, ```macd:macd``` is image name:tag.
+  - Stop container: ```docker stop macd```
+- Using docker with .env:
+  - Build image: ```docker build --env-file .env -t macd:macd .```
+  - Once image is built, run container: ```docker run -it --rm --name macd --env-file .env macd:macd``` where ```--env-file``` is for passing .env file to container.
+  - Stop container: ```docker stop macd```
+- Using docker-compose (.env file is passed automatically):
+  - Build image: ```docker-compose build``` (optional, second step will build image if it is not built yet)
+  - Once image is built, run container: ```docker-compose up```. ```-d``` flag can be used to run container in background.
+  - Stop container: ```docker-compose down```
+- To enter container shell: ```docker exec -it macd bash``` where ```macd``` is container name.
 
 #### Contributing
 Pull requests are welcome. For major changes please open an issue first to discuss what you would like to change.
